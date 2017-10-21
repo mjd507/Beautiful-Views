@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.arc_view, "画椭圆"));
         pageModels.add(new PageModel(R.layout.path_view, "画黑桃"));
         pageModels.add(new PageModel(R.layout.histogram_view, "直方图"));
+        pageModels.add(new PageModel(R.layout.pie_view, "饼图"));
     }
 
     @Override
