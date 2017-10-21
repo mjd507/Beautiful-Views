@@ -1,4 +1,4 @@
-package com.cleaner.beautiful_views;
+package com.cleaner.beauty_views;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.path_view, "画黑桃"));
         pageModels.add(new PageModel(R.layout.histogram_view, "直方图"));
         pageModels.add(new PageModel(R.layout.pie_view, "饼图"));
+        pageModels.add(new PageModel(R.layout.shder_view, "渐变图"));
+        pageModels.add(new PageModel(R.layout.color_filter_view, "滤镜"));
+        pageModels.add(new PageModel(R.layout.xfer_mode_view, "混合模式"));
+        pageModels.add(new PageModel(R.layout.stroken_view, "线条"));
+
     }
 
     @Override

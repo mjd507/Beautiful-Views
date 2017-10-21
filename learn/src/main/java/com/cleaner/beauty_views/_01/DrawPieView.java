@@ -1,4 +1,4 @@
-package com.cleaner.beautiful_views;
+package com.cleaner.beauty_views._01;
 
 import android.content.Context;
 import android.graphics.Canvas;
