@@ -29,22 +29,43 @@ public class DrawShaderView extends View {
     Shader mLinearShader = new LinearGradient(100, 100, 500, 500, Color.RED, Color.YELLOW, Shader.TileMode.CLAMP);
     Shader mRadialShader = new RadialGradient(800, 300, 200, Color.RED, Color.YELLOW, Shader.TileMode.CLAMP);
     Shader mSweepShader = new SweepGradient(300, 800, Color.RED, Color.YELLOW);
-    Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
-    Shader mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
-    Bitmap mBitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.batman_logo);
-    Shader mBitmapShader2 = new BitmapShader(mBitmap2, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
-    Shader mComposeShader = new ComposeShader(mBitmapShader, mBitmapShader2, PorterDuff.Mode.DST_OVER);
+
+    Bitmap mBitmap;
+    Shader mBitmapShader;
+
+    Bitmap mBitmap2;
+    Shader mBitmapShader2;
+
+    Shader mComposeShader;
+    Shader mComposeShader2;
 
     public DrawShaderView(Context context) {
         super(context);
+        init(context);
     }
 
     public DrawShaderView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public DrawShaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context) {
+        mBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.batman);
+        mBitmap = Bitmap.createScaledBitmap(mBitmap, 400, 400, true);
+        mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+
+        mBitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.batman_logo);
+        mBitmap2 = Bitmap.createScaledBitmap(mBitmap2, 400, 400, true);
+        mBitmapShader2 = new BitmapShader(mBitmap2, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+
+        mComposeShader = new ComposeShader(mBitmapShader, mBitmapShader2, PorterDuff.Mode.SRC_OVER);
+
+        mComposeShader2 = new ComposeShader(mBitmapShader, mBitmapShader2, PorterDuff.Mode.DST_OUT);
     }
 
     @Override
@@ -59,17 +80,25 @@ public class DrawShaderView extends View {
         mPaint.setShader(mSweepShader);
         canvas.drawCircle(300, 800, 200, mPaint);
 
+        //绘制 BitmapShader
+        canvas.save();
+        canvas.translate(600, 600); //bitmap 的左上角
         mPaint.setShader(mBitmapShader);
-        canvas.drawCircle(800, 800, 200, mPaint);
+        canvas.drawCircle(200, 200, 200, mPaint);
+        canvas.restore();
 
-        boolean isOpen = canvas.isHardwareAccelerated();
-        if (isOpen) {
-            setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        }
-        mPaint.setShader(mComposeShader);
-        canvas.drawCircle(300, 1300, 200, mPaint);
+        setLayerType(View.LAYER_TYPE_SOFTWARE, mPaint);//关闭硬件加速
 
+        canvas.save();
+        canvas.translate(100, 1100);
         mPaint.setShader(mComposeShader);
-        canvas.drawCircle(800, 1300, 200, mPaint);
+        canvas.drawCircle(200, 200, 200, mPaint);
+        canvas.restore();
+
+        canvas.save();
+        canvas.translate(600, 1100);
+        mPaint.setShader(mComposeShader2);
+        canvas.drawCircle(200, 200, 200, mPaint);
+        canvas.restore();
     }
 }
