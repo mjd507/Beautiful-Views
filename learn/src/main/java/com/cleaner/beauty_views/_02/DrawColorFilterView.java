@@ -21,10 +21,19 @@ import com.cleaner.beauty_views.R;
  */
 
 public class DrawColorFilterView extends View {
-    Bitmap mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+    Bitmap mBitmap;
     Paint mPaint = new Paint();
-    ColorFilter mLightFilter = new LightingColorFilter(0x00ffff, 0x000000);
+    ColorFilter mLightFilter;
+    ColorMatrix mColorMatrix;
+    ColorFilter mMatrixFilter;
+    {
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+        mLightFilter = new LightingColorFilter(0x00ffff, 0x000000);
 
+        mColorMatrix = new ColorMatrix();
+        mColorMatrix.setSaturation(0);
+        mMatrixFilter = new ColorMatrixColorFilter(mColorMatrix);
+    }
     public DrawColorFilterView(Context context) {
         super(context);
     }
@@ -44,9 +53,6 @@ public class DrawColorFilterView extends View {
         mPaint.setColorFilter(mLightFilter);
         canvas.drawBitmap(mBitmap, 0, 0, mPaint);
 
-        ColorMatrix mColorMatrix = new ColorMatrix();
-        mColorMatrix.setSaturation(0);
-        ColorFilter mMatrixFilter = new ColorMatrixColorFilter(mColorMatrix);
         mPaint.setColorFilter(mMatrixFilter);
         canvas.drawBitmap(mBitmap, mBitmap.getWidth() + 100, 0, mPaint);
     }

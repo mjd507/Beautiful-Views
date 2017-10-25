@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.layout.shder_view, "渐变图"));
         pageModels.add(new PageModel(R.layout.color_filter_view, "滤镜"));
         pageModels.add(new PageModel(R.layout.xfer_mode_view, "混合模式"));
-        pageModels.add(new PageModel(R.layout.stroken_view, "线条"));
+        pageModels.add(new PageModel(R.layout.path_effect_view, "线条"));
+        pageModels.add(new PageModel(R.layout.mask_view, "遮罩"));
 
     }
 
