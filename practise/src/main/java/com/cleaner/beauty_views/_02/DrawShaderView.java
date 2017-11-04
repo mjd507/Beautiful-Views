@@ -17,7 +17,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cleaner.beauty_views.R;
+import com.cleaner.practise.R;
 
 /**
  * 描述: Shader 着色器

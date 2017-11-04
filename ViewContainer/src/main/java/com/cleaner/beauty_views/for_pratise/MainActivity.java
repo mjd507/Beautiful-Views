@@ -1,4 +1,4 @@
-package com.cleaner.beauty_views;
+package com.cleaner.beauty_views.for_pratise;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.cleaner.beauty_views.PageFragment;
+import com.cleaner.beauty_views.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        setContentView(R.layout.activity_main_practise);
+        mViewPager = findViewById(R.id.view_pager);
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
