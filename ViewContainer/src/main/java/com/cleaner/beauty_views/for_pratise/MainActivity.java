@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.cleaner.beauty_views.PageFragment;
 import com.cleaner.beauty_views.R;
 
 import java.util.ArrayList;
@@ -60,14 +59,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
-    private class PageModel {
-        int layoutId;
-        String title;
 
-        PageModel(int layoutId, String title) {
-            this.layoutId = layoutId;
-            this.title = title;
-        }
-    }
 
 }

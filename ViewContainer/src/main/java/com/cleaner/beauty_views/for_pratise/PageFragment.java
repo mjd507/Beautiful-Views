@@ -1,4 +1,4 @@
-package com.cleaner.beauty_views;
+package com.cleaner.beauty_views.for_pratise;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

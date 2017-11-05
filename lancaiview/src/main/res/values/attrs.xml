@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClockView">
+        <attr name="clock_radius" format="dimension"/>
+        <attr name="point_circle_radius" format="dimension"/>
+        <attr name="point_circle_color" format="color"/>
+        <attr name="over_circle_color" format="color"/>
+    </declare-styleable>
+</resources>
