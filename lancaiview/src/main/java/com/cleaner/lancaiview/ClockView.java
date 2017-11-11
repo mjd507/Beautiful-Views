@@ -31,7 +31,7 @@ public class ClockView extends View {
     private static final boolean isDebug = false;
     private Paint mPaint = new Paint();
     private Path mPath = new Path();
-    ;
+
     /**
      * View 的中心点
      */
@@ -93,6 +93,7 @@ public class ClockView extends View {
             }
             if (msg.what == MSG_REFRESH_CLOCK) {
                 resetAngle(mAngle + 6);
+                mHandler.sendEmptyMessageDelayed(MSG_REFRESH_CLOCK, 1000);
             }
         }
     }
@@ -110,8 +111,8 @@ public class ClockView extends View {
         TypedArray typedArray = context.obtainStyledAttributes(
                 attrs,
                 R.styleable.ClockView);
-        mClockRadius = typedArray.getDimensionPixelOffset(R.styleable.ClockView_clock_radius, 100);
-        POINT_RADIUS = typedArray.getDimensionPixelOffset(R.styleable.ClockView_point_circle_radius, 2);
+        mClockRadius = typedArray.getDimensionPixelOffset(R.styleable.ClockView_clock_radius, 300);
+        POINT_RADIUS = typedArray.getDimensionPixelOffset(R.styleable.ClockView_point_circle_radius, 6);
         POINT_COLOR = typedArray.getColor(R.styleable.ClockView_point_circle_color, Color.parseColor("#EF5245"));
         OVER_CIRCLE_COLOR = typedArray.getColor(R.styleable.ClockView_over_circle_color, Color.parseColor("#EF5245"));
         typedArray.recycle();
@@ -215,7 +216,6 @@ public class ClockView extends View {
          */
         canvas.drawArc(mRectF, mAngle, 0.2f, false, mPaint);
 
-        mHandler.sendEmptyMessageDelayed(MSG_REFRESH_CLOCK, 1000);
     }
 
     /**
@@ -240,8 +240,8 @@ public class ClockView extends View {
     /**
      * 重新开始转动
      */
-    public void restartRun() {
-        mHandler.removeMessages(MSG_REFRESH_CLOCK);
+    public void startRun() {
+        stopRun();
         mHandler.sendEmptyMessage(MSG_REFRESH_CLOCK);
     }
 

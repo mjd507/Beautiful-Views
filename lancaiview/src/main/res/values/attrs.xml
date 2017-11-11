@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="RollTextView">
+        <attr name="integer_textSize" format="dimension"/>
+        <attr name="decimal_textSize" format="dimension"/>
+    </declare-styleable>
+
     <declare-styleable name="ClockView">
         <attr name="clock_radius" format="dimension"/>
         <attr name="point_circle_radius" format="dimension"/>
         <attr name="point_circle_color" format="color"/>
         <attr name="over_circle_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="PieChartView">
+        <attr name="circle_radius" format="dimension"/>
+        <attr name="circle_width" format="dimension"/>
+        <attr name="part1_color" format="color"/>
+        <attr name="part2_color" format="color"/>
+        <attr name="part3_color" format="color"/>
+        <attr name="part4_color" format="color"/>
     </declare-styleable>
 </resources>

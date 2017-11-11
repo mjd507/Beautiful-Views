@@ -17,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     private List<PageModel> mPageModels = new ArrayList<>();
+
     private void initFragment() {
-        mPageModels.add(new PageModel(new Fragment_Clock(),"秒钟转动"));
+        mPageModels.add(new PageModel(new Fragment_RollText(), "滚动收益"));
+        mPageModels.add(new PageModel(new Fragment_Clock(), "按秒计息"));
+        mPageModels.add(new PageModel(new Fragment_PieChart(), "资产配置"));
     }
 
     @Override
@@ -50,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
     }
 
-    class PageModel{
+    class PageModel {
         Fragment mFragment;
         String mTitle;
-        PageModel(Fragment fragment,String title){
+
+        PageModel(Fragment fragment, String title) {
             mFragment = fragment;
             mTitle = title;
         }
