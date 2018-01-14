@@ -160,6 +160,7 @@ public class RollTextView extends View {
 
         float fontSpacing = mPaint.getFontSpacing();
         mPaint.setTextSize(mIntegerSize);
+        if (mIntegerValue == null) return;
         float integerStrWidth = mPaint.measureText(mIntegerValue);
         float dotWidth = mPaint.measureText(".");
         mPaint.setTextSize(mDecimalSize);

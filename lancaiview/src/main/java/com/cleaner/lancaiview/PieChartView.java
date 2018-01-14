@@ -94,26 +94,47 @@ public class PieChartView extends View {
         return result;
     }
 
-    private float mPart1Progress = 160;
-    private float mPart2Progress = 120;
-    private float mPart3Progress = 80;
-    private float mPart4Progress = 0;
+    private float mPart1Progress = 90;
+    private float mPart2Progress = 90;
+    private float mPart3Progress = 90;
+    private float mPart4Progress = 90;
 
-    public void setPart1Progress(float progress) {
-        mPart1Progress = progress;
+    public void setPart1Pect(float percentage) {
+        mPart1Progress = 360 * percentage;
+        float leftProgress = (1 - percentage) * 360;
+        mPart2Progress = leftProgress / 3;
+        mPart3Progress = leftProgress / 3;
+        mPart4Progress = leftProgress / 3;
+        invalidate();
     }
 
-    public void setPart2Progress(float progress) {
-        mPart2Progress = progress;
+    public void setPart2Pect(float percentage) {
+        mPart2Progress = 360 * percentage;
+        float leftProgress = (1 - percentage) * 360;
+        mPart1Progress = leftProgress / 3;
+        mPart3Progress = leftProgress / 3;
+        mPart4Progress = leftProgress / 3;
+        invalidate();
     }
 
-    public void setPart3Progress(float progress) {
-        mPart3Progress = progress;
+    public void setPart3Pect(float percentage) {
+        mPart3Progress = 360 * percentage;
+        float leftProgress = (1 - percentage) * 360;
+        mPart1Progress = leftProgress / 3;
+        mPart2Progress = leftProgress / 3;
+        mPart4Progress = leftProgress / 3;
+        invalidate();
     }
 
-    public void setPart5Progress(float progress) {
-        mPart4Progress = progress;
+    public void setPart4Pect(float percentage) {
+        mPart4Progress = 360 * percentage;
+        float leftProgress = (1 - percentage) * 360;
+        mPart1Progress = leftProgress / 3;
+        mPart2Progress = leftProgress / 3;
+        mPart3Progress = leftProgress / 3;
+        invalidate();
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {

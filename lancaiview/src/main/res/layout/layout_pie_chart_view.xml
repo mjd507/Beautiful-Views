@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:PieChartView="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              xmlns:PieChartView="http://schemas.android.com/apk/res-auto">
+              android:orientation="vertical">
+
 
     <com.cleaner.lancaiview.PieChartView
+        android:id="@+id/pie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        PieChartView:circle_radius="100dp"
+        PieChartView:circle_radius="80dp"
         PieChartView:circle_width="10dp"/>
+
+    <SeekBar
+        android:id="@+id/sb_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:progress="25"/>
+
+    <SeekBar
+        android:id="@+id/sb_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:progress="25"/>
+
+    <SeekBar
+        android:id="@+id/sb_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:progress="25"/>
+
+    <SeekBar
+        android:id="@+id/sb_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:progress="25"/>
 </LinearLayout>
